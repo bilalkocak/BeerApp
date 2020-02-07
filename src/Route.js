@@ -16,9 +16,15 @@ const Tab = createBottomTabNavigator({
 const AppNavigator = createStackNavigator({
     BeerDetail: {
         screen: BeerDetail,
+        navigationOptions: {
+            headerShown: false,
+        },
     },
     Home: {
         screen: Tab,
+        navigationOptions: {
+            headerShown: false,
+        },
     },
 }, {initialRouteName: 'Home'});
 
