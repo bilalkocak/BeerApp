@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 
 export default function Button(props) {
-    const {text, width, onPress} = props;
+    const {text, width, onPress, backgroundColor} = props;
 
     return (
         <TouchableOpacity onPress={onPress}>
-            <Text style={[styles.button, {width}]}>{text}</Text>
+            <Text style={[styles.button, {width,backgroundColor}]}>{text}</Text>
         </TouchableOpacity>
 
     );
@@ -19,12 +19,12 @@ Button.propTypes = {
     width: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
     onPress: PropTypes.func.isRequired,
+    backgroundColor:PropTypes.string.isRequired
 };
 
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: 'orange',
         color: 'white',
         paddingTop: 10,
         paddingBottom: 10,
