@@ -1,20 +1,30 @@
 import * as React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 
 import BeerDetail from './screens/BeerDetail';
 import BeerList from './screens/BeerList';
+import BeerRandom from './screens/BeerRandom';
+
+const Tab = createBottomTabNavigator({
+    BeerRandom: {screen: BeerRandom},
+    BeerList: {screen: BeerList},
+});
+
 
 const AppNavigator = createStackNavigator({
-    BeerList: {
-        screen: BeerList,
-    },
     BeerDetail: {
         screen: BeerDetail,
     },
-}, {initialRouteName: 'BeerList'});
+    Home: {
+        screen: Tab,
+    },
+}, {initialRouteName: 'Home'});
+
 
 const AppContainer = createAppContainer(AppNavigator);
+
 
 function Route() {
     return (
