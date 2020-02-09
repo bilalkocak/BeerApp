@@ -13,7 +13,7 @@ export default function Table(props) {
                     return (
                         <View key={index} style={styles.tableRow}>
                             <View style={styles.tableRowFirstCell}>
-                                <Text style={[styles.whiteText,styles.tableRowFirstCellText]}>{item.firstCell}:</Text>
+                                <Text style={[styles.whiteText, styles.tableRowFirstCellText]}>{item.firstCell}:</Text>
                             </View>
                             <View style={styles.tableRowSecondCell}>
                                 {
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     tableRowFirstCell: {
-        width: 110,
+        flex: 1,
     },
     tableRowFirstCellText: {
         fontWeight: 'bold',
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         textAlign: 'right',
     },
     tableRowSecondCell: {
-        width: 200,
+        flex: 2,
     },
     tableRow: {
         flexDirection: 'row',
