@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, ScrollView, StyleSheet, Image, RefreshControl, ImageBackground} from 'react-native';
+import {View, Text, ScrollView, SafeAreaView, StyleSheet, Image, RefreshControl} from 'react-native';
 import Button from '../components/Button';
 import Table from '../components/Table';
 
@@ -43,27 +43,32 @@ export default function BeerRandom(props) {
 
 
     return (
+
+
         <ScrollView contentContainerStyle={styles.scrollView}
                     refreshControl={
                         <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
                     }>
-            <View style={styles.randomBeerContainer}>
-                <View style={styles.beerCardContainer}>
+            <SafeAreaView>
+                <View style={styles.randomBeerContainer}>
+                    <View style={styles.beerCardContainer}>
 
-                    <Image source={{
-                        uri: beer.image_url,
-                    }} style={styles.beerImage}/>
-                    <View style={styles.beerInfo}>
-                        <Text style={styles.beerName}>{beer.name}</Text>
-                        <Table data={[
-                            {firstCell: 'Contributor', secondCell: beer.contributed_by},
-                            {firstCell: 'First Brewed', secondCell: beer.first_brewed},
-                            {firstCell: 'Food Pairing', secondCell: beer.food_pairing, isArray: true},
-                        ]}/>
+                        <Image source={{
+                            uri: beer.image_url,
+                        }} style={styles.beerImage}/>
+                        <View style={styles.beerInfo}>
+                            <Text style={styles.beerName}>{beer.name}</Text>
+                            <Table data={[
+                                {firstCell: 'Contributor', secondCell: beer.contributed_by},
+                                {firstCell: 'First Brewed', secondCell: beer.first_brewed},
+                                {firstCell: 'Food Pairing', secondCell: beer.food_pairing, isArray: true},
+                            ]}/>
+                        </View>
+                        <Button backgroundColor={'#F8646C'} text={'GO DETAIL'}
+                                onPress={() => navigate('BeerDetail', {id: beer.id})} width={300}/>
                     </View>
-                    <Button backgroundColor={'#F8646C'} text={'GO DETAIL'} onPress={() => navigate('BeerDetail', {id: beer.id})} width={300}/>
                 </View>
-            </View>
+            </SafeAreaView>
         </ScrollView>
 
 
