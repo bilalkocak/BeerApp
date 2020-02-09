@@ -6,11 +6,28 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import BeerDetail from './screens/BeerDetail';
 import BeerList from './screens/BeerList';
 import BeerRandom from './screens/BeerRandom';
+import {COLOR_1, COLOR_2, COLOR_3} from './color';
 
 const Tab = createBottomTabNavigator({
-    BeerRandom: {screen: BeerRandom},
-    BeerList: {screen: BeerList},
-});
+        BeerList: {screen: BeerList, navigationOptions: {tabBarLabel: 'Beer List'}},
+        Suggest: {screen: BeerRandom, navigationOptions: {tabBarLabel: 'Suggest'}},
+    }, {
+        initialRouteName: 'BeerList',
+        tabBarOptions: {
+            style: {
+                borderBottomColor: COLOR_1,
+                borderBottomWidth: 5,
+                backgroundColor: COLOR_3,
+            },
+            labelStyle: {
+                fontSize: 18,
+                textAlign: 'center',
+                color: COLOR_1,
+                marginBottom: 7,
+            },
+        },
+    },
+);
 
 
 const AppNavigator = createStackNavigator({

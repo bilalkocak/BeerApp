@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, ScrollView, SafeAreaView, StyleSheet, Image, RefreshControl} from 'react-native';
 import Button from '../components/Button';
 import Table from '../components/Table';
+import {COLOR_1, COLOR_2, COLOR_3} from '../color';
 
 export default function BeerRandom(props) {
 
@@ -64,7 +65,7 @@ export default function BeerRandom(props) {
                                 {firstCell: 'Food Pairing', secondCell: beer.food_pairing, isArray: true},
                             ]}/>
                         </View>
-                        <Button backgroundColor={'#F8646C'} text={'GO DETAIL'}
+                        <Button backgroundColor={COLOR_3} text={'GO DETAIL'}
                                 onPress={() => navigate('BeerDetail', {id: beer.id})} width={300}/>
                     </View>
                 </View>
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#575866',
+        backgroundColor: COLOR_3,
 
     },
     randomBeerContainer: {
@@ -105,10 +106,10 @@ const styles = StyleSheet.create({
         width: 350,
         borderRadius: 20,
         alignItems: 'center',
-        backgroundColor: '#71788A',
+        backgroundColor: COLOR_2,
     },
     beerInfo: {
-        backgroundColor: '#F8646C',
+        backgroundColor: COLOR_1,
         borderRadius: 10,
         width: 300,
         alignItems: 'center',

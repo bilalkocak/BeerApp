@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, Image, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import Table from '../components/Table';
 import Button from '../components/Button';
+import {COLOR_1, COLOR_2, COLOR_3} from '../color';
 
 
 export default function BeerDetail(props) {
@@ -35,7 +36,10 @@ export default function BeerDetail(props) {
         let array = [];
         deneme.map(item => {
             array.push(
-                {firstCell: item.name.substring(0, 10), secondCell: (item.amount.value + ' ' + item.amount.unit).toString()},
+                {
+                    firstCell: item.name.substring(0, 10),
+                    secondCell: (item.amount.value + ' ' + item.amount.unit).toString(),
+                },
             );
         });
 
@@ -141,12 +145,12 @@ const styles = StyleSheet.create({
         width: 350,
         borderRadius: 20,
         alignItems: 'center',
-        backgroundColor: '#71788A',
+        backgroundColor: COLOR_3,
         marginTop: 20,
         marginBottom: 20,
     },
     beerInfo: {
-        backgroundColor: '#F8646C',
+        backgroundColor: COLOR_1,
         borderRadius: 10,
         width: 300,
         alignItems: 'center',

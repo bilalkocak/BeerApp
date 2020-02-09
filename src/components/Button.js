@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
+import {COLOR_1} from '../color';
 
 
 export default function Button(props) {
@@ -8,7 +9,7 @@ export default function Button(props) {
 
     return (
         <TouchableOpacity onPress={onPress}>
-            <Text style={[styles.button, {width,backgroundColor}]}>{text}</Text>
+            <Text style={[styles.button, {width, backgroundColor}]}>{text}</Text>
         </TouchableOpacity>
 
     );
@@ -19,13 +20,13 @@ Button.propTypes = {
     width: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
     onPress: PropTypes.func.isRequired,
-    backgroundColor:PropTypes.string.isRequired
+    backgroundColor: PropTypes.string.isRequired,
 };
 
 
 const styles = StyleSheet.create({
     button: {
-        color: 'white',
+        color: COLOR_1,
         paddingTop: 10,
         paddingBottom: 10,
         borderRadius: 10,

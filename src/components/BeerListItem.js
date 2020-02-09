@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import PropTypes from 'prop-types';
+import {COLOR_1} from '../color';
 
 const styles = StyleSheet.create({
     itemContainer: {
@@ -13,10 +14,8 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         paddingLeft: 10,
         flexDirection: 'row',
-        borderWidth: 1,
         borderRadius: 25,
-        backgroundColor: '#F8646C',
-
+        backgroundColor: COLOR_1,
     },
     img: {
         height: 220,
