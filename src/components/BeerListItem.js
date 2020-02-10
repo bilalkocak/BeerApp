@@ -1,74 +1,77 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {
+  View, Text, StyleSheet, Image,
+} from 'react-native';
 import PropTypes from 'prop-types';
-import {COLOR_1} from '../color';
+
+import { COLOR_1 } from '../color';
 
 const styles = StyleSheet.create({
-    itemContainer: {
-        flex: 1,
-        marginTop: 20,
-        marginRight: 20,
-        marginLeft: 20,
-        paddingTop: 20,
-        paddingBottom: 20,
-        paddingRight: 10,
-        paddingLeft: 10,
-        flexDirection: 'row',
-        borderRadius: 25,
-        backgroundColor: COLOR_1,
-    },
-    img: {
-        height: 220,
-    },
-    beerTitle: {
-        fontWeight: 'bold',
-        fontSize: 18,
-        color: 'white',
-    },
-    beerDescription: {
-        fontSize: 14,
-        marginTop: 10,
-        color: 'white',
-    },
-    infoContainer: {
-        flex: 5,
-        justifyContent: 'center',
-    },
-    imageContainer: {
-        flex: 1,
-    },
-    beerTagline: {
-        fontSize: 15,
-        color: 'white',
-    },
+  itemContainer: {
+    flex: 1,
+    marginTop: 20,
+    marginRight: 20,
+    marginLeft: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingRight: 10,
+    paddingLeft: 10,
+    flexDirection: 'row',
+    borderRadius: 25,
+    backgroundColor: COLOR_1,
+  },
+  img: {
+    height: 220,
+  },
+  beerTitle: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: 'white',
+  },
+  beerDescription: {
+    fontSize: 14,
+    marginTop: 10,
+    color: 'white',
+  },
+  infoContainer: {
+    flex: 5,
+    justifyContent: 'center',
+  },
+  imageContainer: {
+    flex: 1,
+  },
+  beerTagline: {
+    fontSize: 15,
+    color: 'white',
+  },
 });
 
 const BeerListItem = (props) => {
-    const {item} = props;
+  const { item } = props;
 
-    return (
-        <View style={styles.itemContainer}>
-            <View style={styles.infoContainer}>
-                <Text style={styles.beerTitle}>{item.name}</Text>
-                <Text style={styles.beerTagline}>{item.tagline}</Text>
-                <Text style={styles.beerDescription}>{item.description.substring(0, 150) + '...'}</Text>
-            </View>
-            <View style={styles.imageContainer}>
-                <Image
-                    style={styles.img}
-                    source={{
-                        uri: item.image_url,
-                    }}
-                />
-            </View>
-        </View>
+  return (
+    <View style={styles.itemContainer}>
+      <View style={styles.infoContainer}>
+        <Text style={styles.beerTitle}>{item.name}</Text>
+        <Text style={styles.beerTagline}>{item.tagline}</Text>
+        <Text style={styles.beerDescription}>{`${item.description.substring(0, 150)}...`}</Text>
+      </View>
+      <View style={styles.imageContainer}>
+        <Image
+          style={styles.img}
+          source={{
+            uri: item.image_url,
+          }}
+        />
+      </View>
+    </View>
 
-    );
+  );
 };
 
 
 BeerListItem.propTypes = {
-    item: PropTypes.object,
+  item: PropTypes.shape.isRequired,
 };
 
 export default BeerListItem;
