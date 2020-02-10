@@ -6,7 +6,8 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import BeerDetail from './screens/BeerDetail';
 import BeerList from './screens/BeerList';
 import BeerRandom from './screens/BeerRandom';
-import {COLOR_1, COLOR_2, COLOR_3} from './color';
+import {COLOR_1, COLOR_3} from './color';
+import SplashScreen from './screens/SplashScreen';
 
 const Tab = createBottomTabNavigator({
         BeerList: {screen: BeerList, navigationOptions: {tabBarLabel: 'Beer List'}},
@@ -43,7 +44,13 @@ const AppNavigator = createStackNavigator({
             headerShown: false,
         },
     },
-}, {initialRouteName: 'Home'});
+    SplashScreen: {
+        screen: SplashScreen,
+        navigationOptions: {
+            headerShown: false,
+        },
+    },
+}, {initialRouteName: 'SplashScreen'});
 
 
 const AppContainer = createAppContainer(AppNavigator);
